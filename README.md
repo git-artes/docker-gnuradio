@@ -18,7 +18,7 @@ I've also made a Docker container for a Ubuntu 18.04 and GNU Radio 3.7 to check 
 1. Enter the `docker-gnuradio/gnuradio-releases-37` folder and execute `docker build -t ubuntu:gnuradio-releases-3.7 .` (again, this step is only necessary once)
 2. Run the container: `docker run --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" --privileged --device /dev/snd -v persistent-37:/home/gnuradio/persistent --group-add=audio -it ubuntu:gnuradio-releases-3.7 bash`. 
 
-You will end up with the situation as before. However, they won't share the `persistent` folder, as I think it doesn't make sense.
+You will end up with the same situation as before. However, they won't share the `persistent` folder, as I think it doesn't make sense.
 
 I'm a total newbie using Docker, so feel free to contact me with suggetions. 
 
