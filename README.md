@@ -11,7 +11,7 @@ If you want the release version of GNU Radio (currently 3.9):
 1. Enter the `docker-gnuradio/gnuradio-releases` folder and execute `docker build -t ubuntu:gnuradio-releases .` (this step is necessary only once, or every time you modify *Dockerfile*) 
 1. Run the container: `docker run --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" --device /dev/snd -v persistent:/home/gnuradio/persistent --group-add=audio -it ubuntu:gnuradio-releases bash`
 
-You will then be in a comand line logged as user *gnuradio* who is a sudoer (password: *gnuradio*). The folder *persistent* in its home directory will persist even after you exit the container. **Remember**: everything else is erased after you exit the container. This means for instance that if you compile and install an OOT you will have to do that again every time you run the container. You may modify Dockerfile to avoid this. 
+You will then be in a comand line logged as user *gnuradio* who is a sudoer (password: *gnuradio*). The folder *persistent* in its home directory will persist even after you exit the container. **Remember**: everything else is erased after you exit the container. This means for instance that if you compile and install an OOT you will have to do that again every time you run the container (unless for instance you compile in the *persistent* folder). You may modify Dockerfile to avoid this. 
 
 I've also made a couple of Dockers container for GNU Radio 3.8 (in Ubuntu 20.04), and GNU Radio 3.7 (in Ubuntu 18.04) to check on compatibility issues regarding my OOTs. In the first case, instead of the last two steps above you have to: 
 
