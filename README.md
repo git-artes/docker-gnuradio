@@ -1,6 +1,6 @@
 ### A docker container with the release version of GNU Radio (3.9 right now) in the latest stable Ubuntu (plus a 3.8 version in Ubuntu 20.04 and a 3.7 version in Ubuntu 18.04)
 
-![Screenshot of two GNU Radios](https://iie.fing.edu.uy/personal/flarroca/wp-content/uploads/sites/12/2020/05/Screenshot_2020-05-13_11-54-20.png)
+![Screenshot of three GNU Radios](https://iie.fing.edu.uy/~flarroca/todos_gnuradio.png)
 
 I have originally prepared these Dockerfiles to be able to migrate my OOT modules to 3.8 and not mess the 3.7 installation of my host PC. The resulting container has the GUI available (so you may use the gnuradio companion and QT widgets) as well as audio. Several packages needed to compile OOTs are also installed and configured. 
 
