@@ -26,10 +26,13 @@ RUN apt-get update
 RUN apt-get install -y gnuradio
 
 # installing other packages needed for downloading and installing OOT modules
-RUN apt-get install -y gnuradio-dev cmake git libboost-all-dev libcppunit-dev liblog4cpp5-dev python3-pygccxml pybind11-dev liborc-dev
+RUN apt-get install -y gnuradio-dev cmake git libboost-all-dev libcppunit-dev liblog4cpp5-dev python3-pygccxml pybind11-dev liborc-dev python3-pip
 
 # of course, nothing useful can be done without vim
 RUN apt-get install -y vim 
+
+# Fix dependency issue as noted on 'InstallingGR' wiki page for 3.10
+RUN pip install packaging
 
 USER gnuradio
 
