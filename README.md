@@ -36,6 +36,7 @@ I'm a total newbie using Docker, so feel free to contact me with suggestions. Al
 
 **Known problems:**
 - When you `sudo` it may output `sudo: setrlimit(RLIMIT_CORE): Operation not permitted`. You may ignore this. 
+- I've ran into problems with unfound packages during the `apt-get install` part after updating some containers. A quick and dirty solution is to purge all containers through `docker system prune -a` (**warning**: you'll eliminate all your previous containers).
 
 IIE Instituto de Ingeniería Eléctrica  
 Facultad de Ingeniería  
