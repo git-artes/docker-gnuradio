@@ -26,7 +26,7 @@ RUN apt-get update
 RUN apt-get install -y gnuradio
 
 # installing other packages needed for downloading and installing OOT modules
-RUN apt-get install -y gnuradio-dev cmake git libboost-all-dev libcppunit-dev liblog4cpp5-dev python3-pygccxml pybind11-dev liborc-dev python3-pip
+RUN apt-get install -y gnuradio-dev cmake git libboost-all-dev libcppunit-dev liblog4cpp5-dev python3-pygccxml pybind11-dev liborc-dev python3-pip libgsl-dev
 
 # of course, nothing useful can be done without vim
 RUN apt-get install -y vim 
