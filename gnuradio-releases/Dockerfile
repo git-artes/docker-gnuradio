@@ -1,7 +1,7 @@
 FROM ubuntu
 LABEL maintainer="Federico 'Larroca' La rocca - flarroca@fing.edu.uy"
 
-#ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 
