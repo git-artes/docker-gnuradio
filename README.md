@@ -9,26 +9,28 @@ If you want the release version of GNU Radio (currently 3.10):
 1. Install docker by following [Docker's installation guide](https://docs.docker.com/get-docker/) (though I've tested this on Ubuntu only, so for convenience a direct link to the corresponding [guide for Ubuntu](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)). 
 1. Clone this repo: `git clone https://github.com/git-artes/docker-gnuradio.git`
 1. Enter the `docker-gnuradio/gnuradio-releases` folder and execute `docker build -t ubuntu:gnuradio-releases .` (this step is necessary only once, or every time you modify *Dockerfile*) 
-1. Run the container: `docker run --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" --device /dev/snd -v persistent:/home/gnuradio/persistent --group-add=audio -it ubuntu:gnuradio-releases bash`
+1. Run the container: `docker run --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" --device /dev/snd -v persistent:/home/gnuradio/persistent --device /dev/dri -v /dev/bus/usb/:/dev/bus/usb/ --privileged --group-add=audio -it ubuntu:gnuradio-releases bash`
 
 You will then be in a comand line logged as user *gnuradio* who is a sudoer (password: *gnuradio*). The folder *persistent* in its home directory will persist even after you exit the container. **Remember**: everything else is erased after you exit the container. This means for instance that if you compile and install an OOT you will have to do that again every time you run the container (unless for instance you compile in the *persistent* folder). You may modify Dockerfile to avoid this. 
+
+The host's USB should be accessible from the docker too, meaning you should be able to use any SDR hardware you plug into the PC.
 
 I've also made a couple of Dockers container for GNU Radio 3.9 and GNU Radio 3.8 (in Ubuntu 20.04), and GNU Radio 3.7 (in Ubuntu 18.04) to check on compatibility issues regarding my OOTs. In the first case, instead of the last two steps above you have to: 
 
 If you want GNU Radio 3.9:
 
 1. Enter the `docker-gnuradio/gnuradio-releases-39` folder and execute `docker build -t ubuntu:gnuradio-releases-3.9 .` (again, this step is only necessary once)
-2. Run the container: `docker run --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" --privileged --device /dev/snd -v persistent-39:/home/gnuradio/persistent --group-add=audio -it ubuntu:gnuradio-releases-3.9 bash`. 
+2. Run the container: `docker run --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" --privileged -v /dev/bus/usb/:/dev/bus/usb/ --device /dev/snd -v persistent-39:/home/gnuradio/persistent --group-add=audio -it ubuntu:gnuradio-releases-3.9 bash`. 
 
 If you want GNU Radio 3.8:
 
 1. Enter the `docker-gnuradio/gnuradio-releases-38` folder and execute `docker build -t ubuntu:gnuradio-releases-3.8 .` (again, this step is only necessary once)
-2. Run the container: `docker run --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" --privileged --device /dev/snd -v persistent-38:/home/gnuradio/persistent --group-add=audio -it ubuntu:gnuradio-releases-3.8 bash`. 
+2. Run the container: `docker run --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" --privileged -v /dev/bus/usb/:/dev/bus/usb/ --device /dev/snd -v persistent-38:/home/gnuradio/persistent --group-add=audio -it ubuntu:gnuradio-releases-3.8 bash`. 
 
 If you want GNU Radio 3.7:
 
 1. Enter the `docker-gnuradio/gnuradio-releases-37` folder and execute `docker build -t ubuntu:gnuradio-releases-3.7 .` (again, this step is only necessary once)
-2. Run the container: `docker run --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" --privileged --device /dev/snd -v persistent-37:/home/gnuradio/persistent --group-add=audio -it ubuntu:gnuradio-releases-3.7 bash`. 
+2. Run the container: `docker run --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" --privileged -v /dev/bus/usb/:/dev/bus/usb/ --device /dev/snd -v persistent-37:/home/gnuradio/persistent --group-add=audio -it ubuntu:gnuradio-releases-3.7 bash`. 
 
 In both cases you will end up with the same situation as before. However, they won't share the `persistent` folder, as I think it doesn't make sense.
 
