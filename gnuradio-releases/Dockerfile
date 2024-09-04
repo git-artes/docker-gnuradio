@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:22.04
 LABEL maintainer="Federico 'Larroca' La rocca - flarroca@fing.edu.uy"
 
 ENV DEBIAN_FRONTEND=noninteractive
