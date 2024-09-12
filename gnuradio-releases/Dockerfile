@@ -23,6 +23,10 @@ RUN mkdir /home/gnuradio/persistent  && chown gnuradio /home/gnuradio/persistent
 
 RUN apt-get update
 
+# Set timezone info to avoid interactive input
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo 'Asia/Shanghai' > /etc/timezone
+
 RUN apt-get install -y gnuradio
 
 # installing other packages needed for downloading and installing OOT modules
