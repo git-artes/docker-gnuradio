@@ -1,4 +1,4 @@
-### A docker container with the release version of GNU Radio (3.10 right now) in the latest stable Ubuntu (plus 3.9 and 3.8 versions in Ubuntu 20.04, and a 3.7 version in Ubuntu 18.04)
+### A docker container with the release version of GNU Radio (3.10 right now) in Ubuntu 22.04 (plus 3.9 and 3.8 versions in Ubuntu 20.04, and a 3.7 version in Ubuntu 18.04)
 
 ![Screenshot of three GNU Radios](https://iie.fing.edu.uy/~flarroca/todos_gnuradio.png)
 
